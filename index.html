@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Prediction</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container{
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        input, select{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Titanic Survival Predictor</h2>
+
+    <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+    </select>
+
+    <input type="number" id="age" placeholder="Enter Age">
+
+    <select id="class">
+        <option value="">Passenger Class</option>
+        <option value="1">1st Class</option>
+        <option value="2">2nd Class</option>
+        <option value="3">3rd Class</option>
+    </select>
+
+    <button onclick="predictSurvival()">Predict</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function predictSurvival(){
+
+    let gender = document.getElementById("gender").value;
+    let age = document.getElementById("age").value;
+    let passengerClass = document.getElementById("class").value;
+
+    let result = "";
+
+    // Simple prediction logic
+    if(gender === "female"){
+        result = "Passenger Likely Survived";
+    }
+    else if(age < 10){
+        result = "Passenger Likely Survived";
+    }
+    else if(passengerClass == 1){
+        result = "Passenger May Survive";
+    }
+    else{
+        result = "Passenger Less Likely to Survive";
+    }
+
+    document.getElementById("result").innerHTML = result;
+}
+
+</script>
+
+</body>
+</html>
